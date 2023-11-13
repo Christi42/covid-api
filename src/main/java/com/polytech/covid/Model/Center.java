@@ -12,14 +12,20 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "center")
-public class Centre {
+public class Center {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -32,8 +38,9 @@ public class Centre {
     private Admin admin;
 
     @OneToMany
-    private List<Medecin> medecins;
+    private List<Doctor> doctors;
 
     @OneToMany(mappedBy = "center")
     private List<Reservation> reservations;
+    
 }
