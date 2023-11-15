@@ -101,7 +101,7 @@ public class AdminController {
         return personneService.findByName(name);
     }
 
-    @GetMapping("/centers/{center}/books")
+    @GetMapping("/centers/{center}/hasbooked")
     public String hasbooked(@PathVariable("center") Long centerId, @RequestParam("name") String name){
         if(reservationService.hasbooked(centerId, name)){
             return "La personne a une réservation";

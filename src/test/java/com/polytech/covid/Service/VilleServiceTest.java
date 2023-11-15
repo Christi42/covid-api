@@ -8,6 +8,7 @@ import com.polytech.covid.Model.Center;
 import com.polytech.covid.Model.Ville;
 import com.polytech.covid.Repository.CenterRepository;
 import com.polytech.covid.Repository.VilleRepository;
+
 import static org.junit.jupiter.api.Assertions.*;
 //import static org.mockito.Mockito.*;
 
@@ -15,16 +16,21 @@ import java.util.List;
 
 
 @SpringBootTest
+//@RequiredArgsConstructor
 public class VilleServiceTest {
 
-    @Autowired
     private VilleService villeService ;
 
-    @Autowired
     private VilleRepository villeRepository;
 
-    @Autowired
     private CenterRepository centerRepository;
+
+    @Autowired
+    public VilleServiceTest(VilleService villeService, VilleRepository villeRepository, CenterRepository centerRepository) {
+        this.villeService = villeService;
+        this.villeRepository = villeRepository;
+        this.centerRepository = centerRepository;
+    }
 
     @Test
     void testGetCenters() {
