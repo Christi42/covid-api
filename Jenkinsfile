@@ -24,14 +24,14 @@ pipeline {
             }
         }*/
         
-        /*stage('Build') {
+        stage('Build') {
             steps {
                 // Compilation du projet Java (exemple avec Maven)
                 bat 'gradle build'
             }
         }
         
-        /*stage('Test') {
+        stage('Test') {
             steps {
                 // Exécution des tests unitaires
                 bat 'gradle test'
@@ -56,6 +56,6 @@ pipeline {
             // Actions à exécuter en cas d'échec du pipeline
             echo 'Vous avez échoué avec succès, essayez à nouveau'
             // Vous pouvez ajouter d'autres actions ici
-        }*/
+        }
     }
 }
