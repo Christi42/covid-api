@@ -9,7 +9,7 @@ pipeline {
                 checkout scm
             }
         }
-
+    }
         
         stage('Build') {
             steps {
@@ -25,14 +25,8 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
-            steps {
-                // Déploiement de l'application sur un serveur (exemple avec Maven)
-                bat 'gradle deploy'
-                
-            }
-        }
-    }
+        
+    
 
     stage('Build Docker Image') {
             steps {
@@ -48,6 +42,14 @@ pipeline {
             }
         }
     
+    stage('Deploy') {
+            steps {
+                // Déploiement de l'application sur un serveur (exemple avec Maven)
+                bat 'gradle deploy'
+                
+            }
+        }
+
     post {
         success {
             // Actions à exécuter en cas de succès du pipeline
