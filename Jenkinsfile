@@ -11,8 +11,7 @@ pipeline {
 
             }
         }
-    
-        
+         
         stage('Build') {
             steps {
                 // Compilation du projet Java (exemple avec Maven)
@@ -26,8 +25,7 @@ pipeline {
                 bat 'gradle test'
             }
         }*/
-          
-    
+           
 
     stage('Build Docker Image') {
             steps {
@@ -44,17 +42,17 @@ pipeline {
             }
         }
 
-    /*stage('Push') {
+    stage('Push') {
             steps {
                 // Authentification au registre Docker
                 script {
-                    docker.withRegistry('https://registry-url/', 'credentials-id') {
+                    docker.withRegistry('https://hub.docker.com/', 'anna') {
                         // Pousse l'image Docker vers le registre
                         dockerImage.push()
                     }
                 }
             }
-        }*/
+        }
     }
 
     post {
