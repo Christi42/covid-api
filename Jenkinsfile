@@ -30,7 +30,7 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 
-                bat 'docker build -t mon_registre/image_back_jenkins:latest .'
+                bat 'docker build -t image_back_jenkins:latest .'
             }
         }
     
