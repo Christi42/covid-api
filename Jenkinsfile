@@ -46,11 +46,20 @@ pipeline {
             steps {
                 // Authentification au registre Docker
                 script {
-                    docker.withRegistry('https://hub.docker.com/', 'anna') {
-                        // Pousse l'image Docker vers le registre
-                        dockerImage.push()
-                    }
+                    // Docker login to authenticate with Docker Hub
+                    bat 'docker login -u christianna1 -p abdmalagasy'
+                    // Replace 'your-docker-username' and 'your-docker-password' with your Docker Hub credentials
+
+                    // Build the Docker image
+                    //bat 'docker build -t your-docker-image:tag -f path/to/Dockerfile .'
+                    // Replace 'your-docker-image:tag' with your image name and tag
+                    // Replace 'path/to/Dockerfile' with the path to your Dockerfile
+
+                    // Push the Docker image to Docker Hub
+                    bat 'docker push image_back_jenkins:latest'
+                    // Replace 'your-docker-image:tag' with your image name and tag
                 }
+                
             }
         }
     }
