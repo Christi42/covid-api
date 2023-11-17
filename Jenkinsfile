@@ -31,12 +31,8 @@ pipeline {
 
     stage('Build Docker Image') {
             steps {
-                /*dockerBuild(
-                    imageName: 'my-image',
-                    dockerfile: 'Dockerfile',
-                    args: '--build-arg foo=bar'
-                )*/
-                bat 'docker build -t image_back_jenkins:latest .'
+                
+                bat 'docker build -t mon_registre/image_back_jenkins:latest .'
             }
         }
     
@@ -47,7 +43,20 @@ pipeline {
                 
             }
         }
+
+    /*stage('Push') {
+            steps {
+                // Authentification au registre Docker
+                script {
+                    docker.withRegistry('https://registry-url/', 'credentials-id') {
+                        // Pousse l'image Docker vers le registre
+                        dockerImage.push()
+                    }
+                }
+            }
+        }*/
     }
+
     post {
         success {
             // Actions à exécuter en cas de succès du pipeline
