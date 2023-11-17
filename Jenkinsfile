@@ -31,7 +31,7 @@ pipeline {
             steps {
                 
                 bat 'docker build -t image_back_jenkins:latest .'
-                /*bat 'docker login -u christianna1 -p abdmalagasy'
+                /*
                 
                 bat 'docker push reposit/image_back_jenkins:latest'*/
             }
