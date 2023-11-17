@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        /*stage('Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 script {
                     // Exemple de création d'une image Docker
@@ -22,7 +22,7 @@ pipeline {
                     customImage.push()
                 }
             }
-        }*/
+        }
         
         stage('Build') {
             steps {
