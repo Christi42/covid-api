@@ -31,7 +31,9 @@ pipeline {
             steps {
                 
                 bat 'docker build -t image_back_jenkins:latest .'
+                /*bat 'docker login -u christianna1 -p abdmalagasy'
                 
+                bat 'docker push reposit/image_back_jenkins:latest'*/
             }
         }
     
@@ -42,6 +44,7 @@ pipeline {
                 
             }
         }
+
     
     }
 
@@ -53,7 +56,7 @@ pipeline {
         }
         failure {
             // Actions à exécuter en cas d'échec du pipeline
-            echo 'Vous avez échoué, essayez à nouveau'
+            echo 'Vous avez échoué avec succès, essayez à nouveau'
             // Vous pouvez ajouter d'autres actions ici
         }
     }
