@@ -9,7 +9,7 @@ pipeline {
                 checkout scm
             }
         }
-    }
+    
         
         stage('Build') {
             steps {
@@ -49,7 +49,7 @@ pipeline {
                 
             }
         }
-
+    }
     post {
         success {
             // Actions à exécuter en cas de succès du pipeline
