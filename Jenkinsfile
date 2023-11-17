@@ -42,7 +42,7 @@ pipeline {
             }
         }
 
-    stage('Push') {
+    /*stage('Push') {
             steps {
                 // Authentification au registre Docker
                 
@@ -61,7 +61,7 @@ pipeline {
                 
                 
             }
-        }
+        }*/
     }
 
     post {
