@@ -42,7 +42,6 @@ pipeline {
                 
             }
         }
-
     
     }
 
@@ -54,7 +53,7 @@ pipeline {
         }
         failure {
             // Actions à exécuter en cas d'échec du pipeline
-            echo 'Vous avez échoué avec succès, essayez à nouveau'
+            echo 'Vous avez échoué, essayez à nouveau'
             // Vous pouvez ajouter d'autres actions ici
         }
     }
