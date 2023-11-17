@@ -6,7 +6,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Récupération du code source depuis un dépôt Git
-                checkout scm
+                git branch: 'main', url: 'https://github.com/Christi42/covid-api.git/'
+
             }
         }
     
