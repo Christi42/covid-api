@@ -31,11 +31,12 @@ pipeline {
 
     stage('Build Docker Image') {
             steps {
-                dockerBuild(
+                /*dockerBuild(
                     imageName: 'my-image',
                     dockerfile: 'Dockerfile',
                     args: '--build-arg foo=bar'
-                )
+                )*/
+                bat 'docker build -t my-image:latest .'
             }
         }
     
