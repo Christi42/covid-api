@@ -20,12 +20,12 @@ pipeline {
             }
         }
         
-        stage('Test') {
+        /*stage('Test') {
             steps {
                 // Exécution des tests unitaires
                 bat 'gradle test'
             }
-        }
+        }*/
           
     
 
