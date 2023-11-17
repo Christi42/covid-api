@@ -26,8 +26,7 @@ pipeline {
                 bat 'gradle test'
             }
         }
-        
-        
+          
     
 
     stage('Build Docker Image') {
