@@ -29,6 +29,7 @@ pipeline {
             steps {
                 // Déploiement de l'application sur un serveur (exemple avec Maven)
                 bat 'gradle deploy'
+                
             }
         }
     }
