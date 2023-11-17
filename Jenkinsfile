@@ -1,6 +1,7 @@
 pipeline {
     agent any
     
+
     stages {
         stage('Checkout') {
             steps {
@@ -8,25 +9,39 @@ pipeline {
                 checkout scm
             }
         }
+
+        /*stage('Build Docker Image') {
+            steps {
+                script {
+                    // Exemple de création d'une image Docker
+                    def customImage = docker.build('image_back_jenkins:--', '-f Dockerfile .')
+                    // Remplacez 'your-docker-image:tag' par le nom et le tag de votre image Docker
+                    // Remplacez 'path/to/Dockerfile' par le chemin relatif ou absolu de votre Dockerfile
+
+                    // Push de l'image vers un registre Docker (facultatif)
+                    customImage.push()
+                }
+            }
+        }*/
         
-        stage('Build') {
+        /*stage('Build') {
             steps {
                 // Compilation du projet Java (exemple avec Maven)
-                sh 'mvn clean install'
+                bat 'gradle build'
             }
         }
         
-        stage('Test') {
+        /*stage('Test') {
             steps {
                 // Exécution des tests unitaires
-                sh 'mvn test'
+                bat 'gradle test'
             }
         }
         
         stage('Deploy') {
             steps {
                 // Déploiement de l'application sur un serveur (exemple avec Maven)
-                sh 'mvn deploy'
+                bat 'gradle deploy'
             }
         }
     }
@@ -41,6 +56,6 @@ pipeline {
             // Actions à exécuter en cas d'échec du pipeline
             echo 'Vous avez échoué avec succès, essayez à nouveau'
             // Vous pouvez ajouter d'autres actions ici
-        }
+        }*/
     }
 }
