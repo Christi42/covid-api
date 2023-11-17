@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     // Exemple de création d'une image Docker
-                    def customImage = docker.build('image_back_jenkins:--', '-f Dockerfile .')
+                    def customImage = docker.build('image_back_jenkins:1', '-f Dockerfile .')
                     // Remplacez 'your-docker-image:tag' par le nom et le tag de votre image Docker
                     // Remplacez 'path/to/Dockerfile' par le chemin relatif ou absolu de votre Dockerfile
 
