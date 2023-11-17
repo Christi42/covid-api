@@ -19,21 +19,19 @@ pipeline {
             }
         }
         
-        /*stage('Test') {
+        stage('Test') {
             steps {
                 // Exécution des tests unitaires
                 bat 'gradle test'
             }
-        }*/
+        }
            
 
     stage('Build Docker Image') {
             steps {
                 
-                bat 'docker build -t reposit/image_back_jenkins:latest -f Dockerfile .'
-                bat 'docker login -u christianna1 -p abdmalagasy'
-                bat 'docker tag image_back_jenkins:latest christianna1/reposit:tagname'
-                bat 'docker push reposit/image_back_jenkins:latest'
+                bat 'docker build -t image_back_jenkins:latest .'
+                
             }
         }
     
@@ -45,26 +43,7 @@ pipeline {
             }
         }
 
-    /*stage('Push') {
-            steps {
-                // Authentification au registre Docker
-                
-                    // Docker login to authenticate with Docker Hub
-                    bat 'docker login -u christianna1 -p abdmalagasy'
-                    // Replace 'your-docker-username' and 'your-docker-password' with your Docker Hub credentials
-
-                    // Build the Docker image
-                    //bat 'docker build -t your-docker-image:tag -f path/to/Dockerfile .'
-                    // Replace 'your-docker-image:tag' with your image name and tag
-                    // Replace 'path/to/Dockerfile' with the path to your Dockerfile
-
-                    // Push the Docker image to Docker Hub
-                    bat 'docker push image_back_jenkins:latest'
-                    // Replace 'your-docker-image:tag' with your image name and tag
-                
-                
-            }
-        }*/
+    
     }
 
     post {
