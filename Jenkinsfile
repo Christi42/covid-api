@@ -10,19 +10,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Exemple de création d'une image Docker
-                    def customImage = docker.build('image_back_jenkins:--', '-f Dockerfile .')
-                    // Remplacez 'your-docker-image:tag' par le nom et le tag de votre image Docker
-                    // Remplacez 'path/to/Dockerfile' par le chemin relatif ou absolu de votre Dockerfile
-
-                    // Push de l'image vers un registre Docker (facultatif)
-                    customImage.push()
-                }
-            }
-        }
         
         stage('Build') {
             steps {
@@ -45,6 +32,20 @@ pipeline {
             }
         }
     }
+
+    stage('Build Docker Image') {
+            steps {
+                script {
+                    // Exemple de création d'une image Docker
+                    def customImage = docker.build('image_back_jenkins:--', '-f Dockerfile .')
+                    // Remplacez 'your-docker-image:tag' par le nom et le tag de votre image Docker
+                    // Remplacez 'path/to/Dockerfile' par le chemin relatif ou absolu de votre Dockerfile
+
+                    // Push de l'image vers un registre Docker (facultatif)
+                    customImage.push()
+                }
+            }
+        }
     
     post {
         success {
