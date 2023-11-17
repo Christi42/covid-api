@@ -30,7 +30,9 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 
-                bat 'docker build -t image_back_jenkins:latest .'
+                bat 'docker build -t image_back_jenkins:latest -f Dockerfile .'
+                bat 'docker login -u christianna1 -p abdmalagasy'
+                bat 'docker push image_back_jenkins:latest'
             }
         }
     
