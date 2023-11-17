@@ -32,7 +32,8 @@ pipeline {
                 
                 bat 'docker build -t image_back_jenkins:latest -f Dockerfile .'
                 bat 'docker login -u christianna1 -p abdmalagasy'
-                bat 'docker push image_back_jenkins:latest'
+                bat 'docker tag image_back_jenkins:latest christianna1/reposit:tagname'
+                bat 'docker push christianna1/repository:tagname'
             }
         }
     
