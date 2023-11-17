@@ -6,7 +6,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Récupération du code source depuis un dépôt Git
-                git branch: 'main', url: 'https://github.com/Christi42/covid-api.git/'
+                //git branch: 'main', url: 'https://github.com/Christi42/covid-api.git/'
+                checkout scm
 
             }
         }
@@ -36,14 +37,14 @@ pipeline {
                     dockerfile: 'Dockerfile',
                     args: '--build-arg foo=bar'
                 )*/
-                bat 'docker build -t my-image:latest .'
+                bat 'docker build -t image_back_jenkins:latest .'
             }
         }
     
     stage('Deploy') {
             steps {
                 // Déploiement de l'application sur un serveur (exemple avec Maven)
-                bat 'gradle deploy'
+                bat 'docker compose up -d'
                 
             }
         }
